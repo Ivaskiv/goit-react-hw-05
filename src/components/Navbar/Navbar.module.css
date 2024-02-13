@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  align-items: flex-start;
+  color: black;
+  text-align: start;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.activeLink,
+.activeLink:hover {
+  color: red;
+}
+
+a:not(:last-child) {
+  margin: 0 20px 0 0;
+}

@@ -1,0 +1,48 @@
+.castItems {
+  list-style: none;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.castItem {
+  width: calc(20% - 10px);
+  margin-bottom: 20px;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.castItem:hover {
+  transform: scale(1.1);
+}
+
+.profilePath {
+  max-width: 100px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.cardData {
+  max-width: 100px;
+  height: 20%;
+  font-size: 12px;
+}
+
+.cardDataName {
+  font-size: 14px;
+  color: blue;
+}
+
+.cardData p {
+  font-size: 12px;
+}
+
+.cardData span {
+  font-size: 10px;
+}

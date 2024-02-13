@@ -1,0 +1,14 @@
+.list {
+  list-style: none;
+  text-align: start;
+}
+
+.li {
+  font-size: 16px;
+}
+.li:nth-child(even) a {
+  color: blue;
+}
+.li:nth-child(odd) a {
+  color: rgb(3, 47, 113);
+}

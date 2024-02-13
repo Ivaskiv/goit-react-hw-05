@@ -1,0 +1,38 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.searchButton {
+  padding: 8px 12px;
+  background-color: blue;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchResultsList {
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.searchResultItem {
+  margin-bottom: 8px;
+}
+
+.searchResultLink {
+  text-decoration: underline;
+  color: #007bff;
+  cursor: pointer;
+}

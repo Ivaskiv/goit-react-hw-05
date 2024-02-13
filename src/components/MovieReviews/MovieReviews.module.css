@@ -1,0 +1,27 @@
+.reviewsContainer {
+  padding: 20px;
+}
+
+.reviewsItems {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+.reviewsItem {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.reviewerName {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.noReviews {
+  color: #666;
+  font-style: italic;
+}
