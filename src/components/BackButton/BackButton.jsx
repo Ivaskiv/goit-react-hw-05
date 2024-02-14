@@ -4,6 +4,7 @@ import css from './BackButton.module.css';
 
 export default function BackButton({ className }) {
   const { state } = useLocation();
+  console.log(state);
   return (
     <Link to={state?.from ?? '/'} className={`${css.goBackLink} ${className ?? ''}`}>
       <IoChevronBackSharp />

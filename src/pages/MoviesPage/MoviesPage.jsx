@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
 import { searchMovies } from '../../api';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import css from './MoviesPage.module.css';
+import { MovieList, MovieListItem } from '../../components/MovieList/MovieList';
 
 export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputFilter, setInputFilter] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const filter = searchParams.get('filter');
-  const location = useLocation();
   const handleSearch = () => {
     searchParams.set('filter', inputFilter);
     setSearchParams(searchParams);
@@ -40,31 +40,26 @@ export default function MoviesPage() {
   }, [filter]);
   return (
     <div>
-      <div className={css.searchContainer}>
-        <input
-          type="search"
-          name="search-form"
-          id="search-form"
-          className="search-input"
-          value={inputFilter}
-          onChange={e => setInputFilter(e.target.value)}
-        />
-        <button className={css.searchButton} onClick={handleSearch}>
-          search
-        </button>
-      </div>
-      <ul className={css.searchResultsList}>
-        {searchResults.map(movie => (
-          <li key={movie.id} className={css.searchResultItem}>
-            <Link
-              to={{ pathname: movie.id.toString(), state: { from: location } }}
-              className={css.searchResultLink}
-            >
-              {movie.title}
-            </Link>
-          </li>
+      <form onSubmit={handleSearch}>
+        <div className={css.searchContainer}>
+          <input
+            type="search"
+            name="filter"
+            id="search-form"
+            className={css.searchInput}
+            value={inputFilter}
+            onChange={e => setInputFilter(e.target.value)}
+          />
+          <button className={css.searchButton} type="submit">
+            search
+          </button>
+        </div>
+      </form>
+      <MovieList>
+        {searchResults.map(({ id, title }) => (
+          <MovieListItem key={id} id={id} title={title} />
         ))}
-      </ul>
+      </MovieList>
     </div>
   );
 }

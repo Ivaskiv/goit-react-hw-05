@@ -4,10 +4,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from '../Navbar/Navbar.jsx';
 
-const Home = lazy(() => import('../Home/Home.jsx'));
+const Home = lazy(() => import('../../pages/Home/Home.jsx'));
 const NotFound = lazy(() => import('../NotFound/NotFound.jsx'));
-const MoviesPage = lazy(() => import('../MoviesPage/MoviesPage.jsx'));
-const MovieDetailsPage = lazy(() => import('../MovieDetailsPage/MovieDetailsPage.jsx'));
+const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage.jsx'));
+const MovieDetailsPage = lazy(() => import('../../pages/MovieDetailsPage/MovieDetailsPage.jsx'));
 const MovieCast = lazy(() => import('../MovieCast/MovieCast.jsx'));
 const MovieReviews = lazy(() => import('../MovieReviews/MovieReviews.jsx'));
 

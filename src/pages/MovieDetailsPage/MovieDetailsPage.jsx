@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../api';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
-import BackButton from '../BackButton/BackButton';
 import { placeholderImageSrc } from '../../common';
+import BackButton from '../../components/BackButton/BackButton';
 
 const MovieDetailsPage = () => {
   const [detailsMovie, setDetailsMovie] = useState(null); // Створюємо стан для деталей фільму та функцію для їх оновлення
@@ -28,7 +28,7 @@ const MovieDetailsPage = () => {
     const baseUrl = 'https://image.tmdb.org/t/p/';
     return `${baseUrl}${size}${filePath}`;
   };
-
+  const { state } = useLocation();
   return (
     <>
       <BackButton />
@@ -42,7 +42,6 @@ const MovieDetailsPage = () => {
               alt={detailsMovie.title}
               className={css.moviePoster}
             />
-
             <div className={css.movieDetails}>
               <h1>{detailsMovie.original_title}</h1>
               <p className={css.movieDetailsData}>User Score: {detailsMovie.vote_average}</p>
@@ -65,10 +64,14 @@ const MovieDetailsPage = () => {
       <hr />
       <ul className={css.creditsReviewsItems}>
         <li className={css.creditsReviewsItem}>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={state && { from: state.from }}>
+            Cast
+          </Link>
         </li>
         <li className={css.creditsReviewsItem}>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={state && { from: state.from }}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <hr />
