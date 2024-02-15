@@ -13,10 +13,10 @@ const MovieReviews = lazy(() => import('../MovieReviews/MovieReviews.jsx'));
 
 export const App = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <BrowserRouter>
       <div>
-        <BrowserRouter>
-          <Navbar />
+        <Navbar />
+        <Suspense fallback={<div>Loading...</div>}>
           <hr />
           <Routes>
             <Route index path="/" element={<Home />} />
@@ -27,9 +27,9 @@ export const App = () => {
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </Suspense>
       </div>
-    </Suspense>
+    </BrowserRouter>
   );
 };
 
